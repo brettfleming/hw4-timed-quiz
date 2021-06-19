@@ -3,28 +3,35 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 body {
+    background-color: cornflowerblue;
+}
+section {
+    display: flex;
     padding: 0;
     margin:0;
-    display: flex;
     width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: cornflowerblue;
+    
+}
+.header {
+    display: flex;
+}
+.hidden {
+    display: none;
 }
 
 .container {
-    /* height: 300px; */
     width: 500px;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-    box-shadow: 0 0 10px;
 }
 .grid {
     display: grid;
-    gap: 10px;
-    margin: 20px 50px;
+    gap: 15px;
+    margin: 30px 60px;
 }
 .button {
     text-align: left;
@@ -32,19 +39,28 @@ body {
     background-color: deepskyblue;
     outline: none;
 }
-.button:hover {
-    border-color: black;
-}
+
 .start_button, .next_button {
     font-size: 1.5rem;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 15px 25px;
 }
 .controls {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.hide {
-    display: none;
+
+.button:hover {
+    border-color: black;
+}
+.correct {
+    background-color: green;
+}
+.wrong {
+    background-color: red;
+}
+#score {
+    padding-left: 10px;
+    padding-right: 10px;
 }

@@ -34,15 +34,24 @@ const questionEl = document.getElementById("question");
 const answerEl = document.getElementById("answers");
 
 let currentScore = 0;
-let timeLeft = 120;
+let timeLeft = 30;
 
 
 let selectedQuestion 
 let currentQuestion
-let highscore = window.localStorage.getItem("highscore", highscore);
+let highscore = localStorage.getItem("highscore"); 
 scoreEl.innerText = "Score: " + currentScore;
-
-window.localStorage.getItem("highscore");
+// highscore code still a work in progress
+// function init() {
+// if(highscore !== null){
+//     if (score > highscore) {
+//         localStorage.setItem("highscore", score);      
+//     }
+// }
+// else{
+//     localStorage.setItem("highscore", score);
+// }
+// }
 
 function start() {
     startButton.classList.add("hidden");
@@ -88,10 +97,10 @@ function showQuestion(question) {
 function selectAnswer(event) {
     const selectedButton = event.target
     if (selectedButton.dataset.correct) {
-        currentScore = currentScore + 1;
+        currentScore = currentScore + 10;
         scoreEl.innerText = "Score: " + currentScore;
     }
-    if (selectedQuestion.length > currentQuestion + 1) {
+    if (selectedQuestion.length > currentQuestion) {
         nextButton.classList.remove("hidden") 
     } else {
         gameOver();
@@ -100,10 +109,9 @@ function selectAnswer(event) {
 }
 
 function gameOver() {
-    if (currentScore > highscore) {
-        highscore = currentScore
-        window.localStorage.setItem("highscore", highscore);
-    }
+    answerEl.classList.add("hidden");
+    questionEl.innerText = "Game Over";
+    
     
 }
 
@@ -113,8 +121,8 @@ function reset() {
         answerEl.removeChild(answerEl.firstChild)
     }
 }
-    
 
+// init();
 
 startButton.addEventListener("click", start);
 nextButton.addEventListener("click", () => {

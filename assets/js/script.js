@@ -36,7 +36,7 @@ const answerEl = document.getElementById("answers");
 let currentScore = 0;
 let timeLeft = 30;
 
-
+// current question is the index of the question being asked
 let selectedQuestion 
 let currentQuestion
 let highscore = localStorage.getItem("highscore"); 
